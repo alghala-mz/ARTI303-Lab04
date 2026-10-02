@@ -1,0 +1,79 @@
+33 ?- consult(['c:/Users/ghala/OneDrive - IMAM ABDULRAHMAN BIN FAISAL UNIVERSITY/Desktop/family.pl          ']).
+true.
+
+34 ?- house = house.
+true.
+
+Comment:
+Both atoms are identical, so they unify.
+
+
+35 ?-  house = abc.
+false.
+
+Comment:
+The atoms are different, so they cannot unify.
+
+
+
+36 ?- edge(a,b) = edge(C,b).
+C = a.
+
+Comment:
+The terms have the same predicate and the same number of arguments. C unifies with a.
+
+
+
+37 ?- edge(a,d) = edge(C,B).
+C = a,
+B = d.
+
+Comment:
+The structures match, so C is unified with a and B is unified with d.
+
+
+
+38 ?- edge(C,B) = edge(a,d).
+C = a,
+B = d.
+
+Comment:
+The variables C and B take the corresponding values a and d.
+
+
+39 ?- edge(A,f(g,h)) = edge(a,B).
+A = a,
+B = f(g, h).
+
+Comment:
+A unifies with a, and B unifies with the structure f(g,h).
+
+
+40 ?- edge(A,A) = edge(b,c).
+false.
+
+Comment:
+The same variable A appears twice, so it must have the same value in both positions. It cannot be both b and c.
+
+
+41 ?- edge(A,A) = edge(b,b).
+A = b.
+
+Comment:
+Both positions contain b, so A can unify with b in both positions.
+
+
+
+42 ?- A = B, B = f.
+A = B, B = f.
+
+Comment:
+A and B are linked first. Then B is unified with f, so both variables represent the same value.
+
+
+
+43 ?- A = B, B = f, A = e.
+false.
+
+Comment:
+After A and B are unified with f, A cannot also unify with e.
